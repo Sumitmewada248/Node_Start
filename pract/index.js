@@ -1,16 +1,16 @@
-const http=require("http")
-const emp=require("./employee")
 
 
+const name=require("http")
+const data=require("./employee")
 
 
-http.createServer(function(req,res){
+name.createServer(function(req,res){
+res.write(data.Name())
+res.write(data.Age())
+res.write(data.Password( ))
+res.end("<h5>The End</h5>")
 
-    res.write(emp.empeDetail())
-    res.write(emp.empSalary())
-    res.write(emp.workExperiance())
-    res.end("<h5>No More</h5>")
-}).listen(4040,()=>{
-    console.log("server started at port 4040")
 
+}).listen(4000,()=>{
+    console.log("server run on 4000")
 })

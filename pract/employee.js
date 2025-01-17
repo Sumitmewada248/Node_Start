@@ -1,22 +1,17 @@
 
 
-const empeDetail=()=>{
-    return(`<h1>My Name is Ravindra</h1> <h2>Designation:-Software Engineer</h2>`)
-
-    
+const Name=()=>{
+    return("<h1>Raju Rastogi</h1>")
 }
 
-const empSalary=()=>{
-    return("<h1>My Salary is 50000</h1>")
+const Age=()=>{
+    return("<h2>He is 24 Year old</h2>")
 }
 
-const workExperiance=()=>{
-    return("<h1>My Work Experiance is 5 years</h1>")
+const Password=()=>{
+    return("<h3>You Can Do It</h3>")
 }
 
-module.exports=
-{
-    empeDetail,
-    empSalary,
-    workExperiance
+module.exports={
+    Name,Age,Password
 }
