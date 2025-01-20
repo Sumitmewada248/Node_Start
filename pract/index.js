@@ -1,16 +1,15 @@
 
+const express=require("express")
+const app=express()
 
-const name=require("http")
-const data=require("./employee")
+const emp=require("./routes/emplloyeRoute")
+const pro=require("./routes/productRoute")
 
+app.use("/emplloyee",emp)
+app.use("/product",pro)
 
-name.createServer(function(req,res){
-res.write(data.Name())
-res.write(data.Age())
-res.write(data.Password( ))
-res.end("<h5>The End</h5>")
-
-
-}).listen(4000,()=>{
-    console.log("server run on 4000")
+app.listen(4000,()=>{
+    console.log("server started")
 })
+
+
