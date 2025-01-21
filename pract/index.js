@@ -1,15 +1,12 @@
-
 const express=require("express")
 const app=express()
+const stuRoute=require("./routes/stuRoute")
 
-const emp=require("./routes/emplloyeRoute")
-const pro=require("./routes/productRoute")
-
-app.use("/emplloyee",emp)
-app.use("/product",pro)
-
+app.use("/students",stuRoute)
+app.set("view engine","ejs")
 app.listen(4000,()=>{
-    console.log("server started")
-})
+console.log("server start")
 
 
+}
+)
