@@ -7,13 +7,19 @@
 </head>
 <body bgcolor="lightblue">
   
-   <a href="student/home">Home</a> |
-   <a href="student/insert">Insert</a> |
-   <a href="student/display">Display</a>
+   <a href="/student/home">Home</a> |
+   <a href="/student/insert">Insert</a> |
+   <a href="/student/display">Display</a>
 
 <hr size="4"color="red">
-
+<form action="/student/stusave" method="post">
 <h1>Welcpome to our Home Page</h1>
+Enter Rollno :<input type="text" name="rollno"><br> 
+Enter Name:<input type="text" name="name"><br>
+Enter City :<input type="text" name="city"><br>
+Enter Fees <input type="text" name="fees"><br>
 
+<button>save</button>
+</form>
 </body>
 </html>
