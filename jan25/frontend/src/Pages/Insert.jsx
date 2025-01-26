@@ -18,6 +18,7 @@ const Insert = () => {
         })
     };
 
+    
     return (
         <>
             <h1>Insert Page</h1>
@@ -28,6 +29,7 @@ const Insert = () => {
             <button onClick={handleSubmit}>Submit</button>
         </>
     );
+
 };
 
 export default Insert;
