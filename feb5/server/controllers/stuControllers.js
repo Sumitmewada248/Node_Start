@@ -22,9 +22,9 @@ const dataSearch = async (req, res) => {
 }
 
 const deleteData = async (req, res) => {
-    const { roll } = req.body;
-    const data=await stuModel.deleteOne({rollno:roll})
-    res.send(data);
+    const { id} = req.body;
+    await stuModel.findByIdAndDelete(id)
+    res.send("Data Deleted Successfully");
 }
 
 

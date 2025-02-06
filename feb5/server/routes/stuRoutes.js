@@ -7,6 +7,6 @@ router.post('/data',stuController.datasave)
 router.get('/data',stuController.getdata)
 router.post('/getdata',stuController.dataSearch)
 router.get('/dataupdate',stuController.getdata)
-router.post('/delete',stuController.deleteData)
+router.post('/deletedata',stuController.deleteData)
 module.exports=router
 
