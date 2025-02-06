@@ -16,14 +16,22 @@ const getdata = async (req, res) => {
 }
 
 const dataSearch = async (req, res) => {
-    const { rollno } = req.body;
-    const data=await stuModel.find({rollno:rollno})
+    const { roll } = req.body;
+    const data=await stuModel.find({rollno:roll})
     res.send(data);
 }
+
+const deleteData = async (req, res) => {
+    const { roll } = req.body;
+    const data=await stuModel.deleteOne({rollno:roll})
+    res.send(data);
+}
+
 
 module.exports = {
     datasave,
     getdata,
-    dataSearch
+    dataSearch,
+    deleteData
 
 }

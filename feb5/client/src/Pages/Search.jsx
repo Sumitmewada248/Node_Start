@@ -1,48 +1,54 @@
+
+
 import { useState,useEffect } from "react";
 import axios from "axios";
-
-
+import message from 'antd/lib/message';
 import Table from 'react-bootstrap/Table';
 
+const Search=()=>{
 
-const  Search = () => {
-const[data,setData]=useState([])
-const[rollno,setRollno]=useState("")
+    const [input,setInput]=useState([])
+    const [rollno,setrollno]=useState("")
 
-const getdata=async()=>{
-    let api= `http://localhost:3000/students/data`
-   const res=await axios.post(api,{roll:rollno}).then((res)=>{
+    const getdata=async()=>{
+        let api=await`http://localhost:3000/students/getdata`
+        axios.post(api,{roll:rollno}).then((res)=>{
 
-        if(res.data.length==0){
-            alert("No Data Found")
+            if(res.data.length==0){
+                message.error("Data Not Found")
+            }
+
+            else{
+                setInput(res.data)}
+                console.log(res.data);
+                
+            })
         }
-        else{
-            setData(res.data)
-        }
-    })
-}
-    const ans = data.map((item) => (
-        <tr key={item.rollno}>
-            <td>{item.rollno}</td>
-            <td>{item.name}</td>
-            <td>{item.city}</td>
-            <td>{item.fees}</td>
-        </tr>
-    ));
-
-
-
-
-
-    return (
-        <>
-            <h1>Search</h1>
+    
             
-            Enter Rollno:<input type="text" name="rollno" value={rollno} onChange={(e)=>{setRollno(e.target.value)}}/>
-            <button onClick={getdata}>Search</button>
-                
-                
-            <Table striped bordered hover id="table">
+
+          let ans=input.map((key)=>{
+                return(
+                    <>
+                    
+                        <tr>
+                            <td>{key.rollno}</td>
+                            <td>{key.name}</td>
+                            <td>{key.city}</td>
+                            <td>{key.fees}</td>
+                        </tr>
+                    
+                    </>
+                )
+            })
+
+            return(
+                <>
+
+                <h1>Search Page</h1>
+                Enter Rollno <input type="text" name="rollno" value={rollno} onChange={(e)=>{setrollno(e.target.value)}} />
+                <button onClick={getdata}>Search</button>
+                <Table striped bordered hover id="table">
       <thead>
         <tr>
           <th>Rollno</th>
@@ -51,16 +57,12 @@ const getdata=async()=>{
           <th>Fees</th>
         </tr>
       </thead>
-    <tbody>
-        {ans}
-    </tbody>
-    
+      <tbody>
+      {ans}
+        </tbody>
  
     </Table>
-
-
-  </>
-    );
+                </>
+            )   
 }
-
-export default Search
+export default Search   
