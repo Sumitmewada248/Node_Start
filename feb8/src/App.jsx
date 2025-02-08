@@ -44,37 +44,88 @@
 // export default App
 
 
+// import { useReducer } from "react"
+
+
+
+// const App=()=>{
+
+//   const reducers=(state,action)=>{
+
+    
+//     switch(action){
+//       case "increment":
+//         return state+1
+//       case "decrement":
+//         const newState = state <= 0 ? 0 : state - 1;
+//         if (newState === 0 && state !== 0) {
+//           alert("You have reached zero");
+//         }
+//         return newState;
+        
+//       default:
+//         return state
+//     }
+//   }
+
+//   const [count,dispatch]=useReducer(reducers,0)
+
+//   return(
+//     <>
+//     <button onClick={()=>dispatch("increment")}>Increment</button>
+//     <h1>Count:{count}</h1>
+//     <button onClick={()=>dispatch("decrement")}>Decrement</button>
+//     </>
+//   )
+// }
+// export default App
+
+
+
+
 import { useReducer } from "react"
 
 
 
 const App=()=>{
+  
 
   const reducers=(state,action)=>{
 
     
     switch(action){
-      case "increment":
-        return state+1
-      case "decrement":
-        const newState = state <= 0 ? 0 : state - 1;
-        if (newState === 0 && state !== 0) {
-          alert("You have reached zero");
-        }
-        return newState;
+
+      case "redcolor":
+        return state="red"
+
+        case "bluecolor":
+          return state="blue"
+
+          case "greencolor":
+            return state="green"
+
+            case "yellowcolor":
+              return state="yellow"
+     
+              
         
       default:
         return state
     }
   }
 
-  const [count,dispatch]=useReducer(reducers,0)
+  const [count,dispatch]=useReducer(reducers,"pink")
 
   return(
     <>
-    <button onClick={()=>dispatch("increment")}>Increment</button>
-    <h1>Count:{count}</h1>
-    <button onClick={()=>dispatch("decrement")}>Decrement</button>
+    <button onClick={()=>dispatch("redcolor")}>red</button>
+   
+    <button onClick={()=>dispatch("bluecolor")}>blue</button>
+    <button onClick={()=>dispatch("greencolor")}>green</button>
+    <button onClick={()=>dispatch("yellowcolor")}>yellow</button>
+    <div style={{backgroundColor:count,width:"400px",height:"200px"}}></div>
+   
+   
     </>
   )
 }
