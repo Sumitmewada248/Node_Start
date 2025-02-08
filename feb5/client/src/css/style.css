@@ -1,15 +1,4 @@
-#table{
 
-    width:60%;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: lightblue;
-
-
-}
 #edit{
     cursor: pointer;
     font-size: 30px;
@@ -21,14 +10,39 @@
     font-size: 30px;
     font-weight:bolder
 }
+
+
+#myForm
+{
+    width: 450px;
+    margin:  auto;
+}
+
+#footer{
+
+    text-align: center; 
+}
+
 #table{
-    width:60%;
     text-align: center;
-    margin: auto;
-    margin-top: 50px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: lightblue;
-    font-size: 20px;
-    font-weight: 600;
+    border-collapse: collapse;
+    width: 80%;
+    margin:  auto;
+    font-size:20px;
+
+}
+
+#table td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;}
+
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }

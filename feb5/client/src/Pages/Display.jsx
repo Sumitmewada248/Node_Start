@@ -33,7 +33,7 @@ const Display = () => {
 
     return (
         <>
-        <center> <h1>Display Data</h1></center>
+        <center>    <h1 style={{ fontSize: "40px", color: "#333", margin: "20px 0" ,backgroundColor:"green",padding:"20px",height:"100px",textAlign:"center",color:"white" ,margin:"0px",}}>Display Page</h1></center>
         <hr/>
             
 

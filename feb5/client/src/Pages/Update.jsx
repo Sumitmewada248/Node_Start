@@ -4,10 +4,12 @@ import { MdEdit } from "react-icons/md";
 import Table from 'react-bootstrap/Table';
 import { MdDelete } from "react-icons/md";
 import { message } from "antd";
-
+import { useNavigate } from "react-router-dom";
 
 
 const Update = () => {
+    const navigate=useNavigate()
+    
     const [input,setInput]=useState([])
     const getdata=()=>{
         let api=("http://localhost:3000/students/dataupdate")
@@ -27,6 +29,12 @@ const Update = () => {
         })
     }
 
+
+    const handelEdit=(id)=>{
+        navigate(`/edit/${id}`)
+    }
+
+
     const ans=input.map((item)=>{
         return(
             <>
@@ -36,8 +44,8 @@ const Update = () => {
             <td>{item.name}</td>
             <td>{item.city}</td>
             <td>{item.fees}</td>
-            <td id="edit"> <MdEdit /></td>
-            <td id="delete" onClick={()=>{handelDelete(item._id)}} > <MdDelete />
+            <td id="edit" > <MdEdit   onClick={()=>{handelEdit(item._id)}}/></td>
+            <td id="delete"  > <MdDelete onClick={()=>{handelDelete(item._id)}} />
             </td>
            </tr>
             </>
@@ -47,7 +55,7 @@ const Update = () => {
 
     return (
         <>
-        <center> <h1>Update Data</h1></center>
+        <center>    <h1 style={{ fontSize: "40px", color: "#333", margin: "20px 0" ,backgroundColor:"green",padding:"20px",height:"100px",textAlign:"center",color:"white" ,margin:"0px",}}>Update Page</h1></center>
         <hr/>
             
 

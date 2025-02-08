@@ -44,11 +44,19 @@ const Search=()=>{
 
             return(
                 <>
-
-                <h1>Search Page</h1>
-                Enter Rollno <input type="text" name="rollno" value={rollno} onChange={(e)=>{setrollno(e.target.value)}} />
-                <button onClick={getdata}>Search</button>
+          <center>
+            <h1 style={{ fontSize: "40px", color: "#333", margin: "20px 0" ,backgroundColor:"green",padding:"20px",height:"100px",textAlign:"center",color:"white" ,margin:"0px",}}>Search Page</h1>
+        
+          
+           
+                <div style={{display:"flex",justifyContent:"center",alignItems:"center",border:"2px solid black",padding:"10px",margin:"20px auto",width:"400px",borderRadius:"10px"}}>
+                    <h3>Search Rollno</h3>
+                    <input type="text" name="rollno" value={rollno} onChange={(e)=>{setrollno(e.target.value)}} style={{width:"200px",padding:"10px",margin:"10px",borderRadius:"10px"}}/>
+                    <button onClick={getdata} style={{backgroundColor:"green",color:"white",borderRadius:"10px",padding:"10px"}}>Search</button>
+                </div>
+                <br /><br /></center>
                 <Table striped bordered hover id="table">
+                    
       <thead>
         <tr>
           <th>Rollno</th>

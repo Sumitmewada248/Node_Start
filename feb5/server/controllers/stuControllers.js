@@ -27,11 +27,24 @@ const deleteData = async (req, res) => {
     res.send("Data Deleted Successfully");
 }
 
+const editData = async (req, res) => {
+    const{id}=req.body
+    const data=await stuModel.findById(id)
+    res.send(data)
+}
+
+const editSave=async(req,res)=>{
+    const{_id}=req.body;
+    await stuModel.findByIdAndUpdate(_id,req.body)
+    res.send("Data Updated Successfully")
+}
 
 module.exports = {
     datasave,
     getdata,
     dataSearch,
-    deleteData
+    deleteData,
+    editData,
+    editSave
 
 }

@@ -8,5 +8,7 @@ router.get('/data',stuController.getdata)
 router.post('/getdata',stuController.dataSearch)
 router.get('/dataupdate',stuController.getdata)
 router.post('/deletedata',stuController.deleteData)
+router.post('/editdata',stuController.editData)
+router.post('/updatedata',stuController.editSave)
 module.exports=router
 
