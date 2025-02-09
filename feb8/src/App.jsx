@@ -106,6 +106,17 @@ const App=()=>{
 
             case "yellowcolor":
               return state="yellow"
+
+              case "orangecolor":
+                return state="orange"
+
+                case "purplecolor":
+                  return state="purple"
+
+                  case "pinkcolor":
+                    return state="black"
+
+                    
      
               
         
@@ -118,11 +129,16 @@ const App=()=>{
 
   return(
     <>
-    <button onClick={()=>dispatch("redcolor")}>red</button>
-   
-    <button onClick={()=>dispatch("bluecolor")}>blue</button>
-    <button onClick={()=>dispatch("greencolor")}>green</button>
-    <button onClick={()=>dispatch("yellowcolor")}>yellow</button>
+    <button style={{backgroundColor:"red",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("redcolor")}>red</button>
+    <button style={{backgroundColor:"blue",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("bluecolor")}>blue</button>
+    <button style={{backgroundColor:"green",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("greencolor")}>green</button><br />
+    <button style={{backgroundColor:"yellow",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("yellowcolor")}>yellow</button>
+    <button style={{backgroundColor:"orange",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("orangecolor")}>orange</button>
+    <button style={{backgroundColor:"purple",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("purplecolor")}>purple</button><br />
+    <button style={{backgroundColor:"black",color:"white",padding:"10px 20px",borderRadius:"10px"}} onClick={()=>dispatch("pinkcolor")}>pink</button>
+    <br />
+    <br />
+    <br /><br />
     <div style={{backgroundColor:count,width:"400px",height:"200px"}}></div>
    
    
