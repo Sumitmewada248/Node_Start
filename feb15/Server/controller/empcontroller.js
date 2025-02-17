@@ -5,6 +5,8 @@ const userResgister=async(req,res)=>{
 const {name,email,phone,password}=req.body
 const user=await empmodel.create
 (
+
+    
     {
    name: name,
     email:email,
@@ -13,6 +15,8 @@ const user=await empmodel.create
 )
 
 res.send({msg:"you are registered successfully"})
+
+
 
 }
 
