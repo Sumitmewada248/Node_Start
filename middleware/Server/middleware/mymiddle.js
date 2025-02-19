@@ -1,15 +1,15 @@
 
 
 
-const upload=(req,res,next)=>{
-   console.log("File upload")
-   req.name="myImg.jpg"
+// const upload=(req,res,next)=>{
+//    console.log("File upload")
+//    req.name="myImg.jpg"
 
-next();
+// next();
 
 
    
 
-}
+// }
 
-module.exports=upload
+// module.exports=upload
