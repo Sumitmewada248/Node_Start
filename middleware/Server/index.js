@@ -1,40 +1,20 @@
 
 
-const express=require('express');
+const mongoose=require("mongoose");
+const express=require("express");
+const cors=require("cors");
+const bodyparser=require("body-parser");
 const app=express();
-const cors=require("cors")
-const middle=require("./middleware/mymiddle")
-app.use(cors())
-const bodyparser=require("body-parser")
-app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({extended:true}))
+const user=require("./route/userRoute");
 
+mongoose.connect("mongodb://127.0.0.1:27017/Relation").then(()=>console.log("Database Connected"));
+app.use(cors());
 
+port=8080;
+app.use(express.json());
+app.use(bodyparser.urlencoded({extended:true}));
+app.use(bodyparser.json());
+app.use("/user",user);
 
-app.get("/myhome",(req,res)=>{
-    // const status=false;
-    // if(status){
-    //     console.log("success")
-    //     res.status(200).send("success")
-    // }
-    // else{
-     
-    //     res.status(401).send("home page failed")
-    //     console.log("home page failed")
-    // }
-
-    try {
-        console.log("home page")
-        throw new Error("home page failed ")
-        res.status(200).send("home perfectly run")
-        
-    } catch (error) {
-        res.status(400).send({msg:"server not connected with database"});
-        
-    }
-
-})
-
-
-
-app.listen(3000,()=>console.log("server is running"))
+app.listen(port,()=>
+    console.log(`Server is running on port ${port}`));

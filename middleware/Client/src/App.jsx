@@ -1,39 +1,27 @@
-import axios from "axios"
 
-const home= async()=>{
-  let api="http://localhost:3000/myhome"
-  axios.get(api).then((res)=>{
-    console.log("home page")
-
-  })
+import { BrowserRouter, Router, Route, Routes } from "react-router-dom"
+import Home from "./Pages/Home"
+import Insert from "./Pages/Insert"
+import Display from "./Pages/Display"
+import Layout from "./Layout"
 
 
-}
 
-const about= async()=>{
-  let api="http://localhost:3000/about"
-  axios.get(api).then((res)=>{
-    console.log("home page")
-  })
-
-}
-
-const service= async()=>{
-  let api="http://localhost:3000/service"
-  axios.get(api).then((res)=>{
-    console.log("home page")
-  })
-
-}
 
 const App=()=>{
   return(
     <>
-    <h1>Welcome To My App</h1>
-    <button onClick={home}>Home</button>
-    <button onClick={about}>About</button>
-    <button onClick={service}>Service</button>
+    <BrowserRouter>
+   < Routes>
+   <Route path="/" element={<Layout/>}>
 
+    <Route path="home" element={<Home/>}/> |
+    <Route path="insert" element={<Insert/>}/> |
+    <Route path="display" element={<Display/>}/> |
+   </Route>
+   </Routes>
+    
+    </BrowserRouter>
 
     </>
   )
