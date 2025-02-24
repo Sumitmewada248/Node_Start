@@ -14,6 +14,7 @@ const loaddata=async()=>{
     console.log(res.data)
 }
 useEffect(()=>{
+    
     loaddata()
 })
 
