@@ -1,0 +1,23 @@
+const DoctorModel= require("../model/doctorModel");
+
+
+const registerDoctor=async(req, res)=>{
+    const {name,address, city, mobile,speciality,email, password} = req.body; 
+    try {
+        const Doctor = await DoctorModel.create({
+            name:name,
+            address:address, 
+            city:city,
+            mobile:mobile,
+            specailization:speciality,
+            email:email,
+            password:password 
+        })
+
+        res.status(201).send({msg:"Doctor Succesfully Registered!"});
+    } catch (error) {
+           res.status(400).send({msg:"Data base not Work"})
+    }
+
+}
+module.exports={registerDoctor}
