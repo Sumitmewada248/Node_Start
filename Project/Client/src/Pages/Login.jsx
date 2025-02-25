@@ -27,6 +27,7 @@ const navigate=useNavigate();
             localStorage.setItem("email",response.data.email)
             localStorage.setItem("doctorId",response.data._id)
             navigate("/doctordashboard")
+            
             toast.success("Login Success")
         } catch (error) {
           toast.error(error.response.data.msg)
@@ -36,6 +37,8 @@ const navigate=useNavigate();
         <>
         <h1>Doctor Login</h1> <br />
  
+
+
         <Form>
             
     
