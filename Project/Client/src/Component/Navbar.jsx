@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import BASE_URL from '../config';
+import { Link } from 'react-router-dom';
 
 const Topbar=()=>{
       
@@ -48,8 +49,10 @@ const Topbar=()=>{
         <Container>
           <Navbar.Brand href="#home">Doctor E-Appointment</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Login</Nav.Link>
+            <Nav.Link as={Link} to="home">Home</Nav.Link>
+            <Nav.Link as={Link} to="search">SearchDoctor</Nav.Link>
+
+            <Nav.Link as={Link} to="login">Login</Nav.Link>
             <Nav.Link href="#pricing" onClick={handleShow}>Registration</Nav.Link>
           </Nav>
         </Container>
@@ -86,10 +89,37 @@ const Topbar=()=>{
 
 
 
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Docto Specialization</Form.Label>
+    <Form.Select aria-label="Default select example" name="speciality" onChange={handelInput}>
+          <option>Open this select menu</option>
+          <option value="Cardiologist">Cardiologist</option>
+          <option value="ENT">ENT</option>
+          <option value="Neuro Surgeon">Neuro Surgeon</option>
+          <option value="Dentist">Dentist</option>
+          <option value="Plastic Surgeon">Plastic Surgeon</option>
+          <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+          <option value="Gynecologist">Gynecologist</option>
+          <option value="Urologist">Urologist</option>
+          <option value="Pediatrician">Pediatrician</option>
+          </Form.Select>
+    </Form.Group>
+
+
+    
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Enter Email</Form.Label>
+    <Form.Control type="email" name="email" onChange={handelInput} />
+    </Form.Group>
+
+    
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Enter Password</Form.Label>
+    <Form.Control type="text" name="password" onChange={handelInput} />
+    </Form.Group>
+
+   
     </Form>
-
-
-
 
 
         </Modal.Body>
