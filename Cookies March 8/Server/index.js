@@ -57,7 +57,7 @@ app.get("/setsession",(req,res)=>{
 app.get("/getsession",(req,res)=>{
     const{name,city}=req.session
     console.log(req.session)
-    res.send( {name,city})
+    res.send( {name,city,mysessionid:req.sessionID})
 })
 
 
