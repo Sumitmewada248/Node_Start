@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 
+
 const Login=()=>{
 const[input,setInput]=useState("")
 const navigate=useNavigate()
@@ -25,6 +26,7 @@ const handleSubmit=async(e)=>{
         console.log(response.data)
 
         localStorage.setItem("token",response.data.token)
+        localStorage.setItem("name",response.data.name)
      } catch (error) {
         console.log(error)
      }

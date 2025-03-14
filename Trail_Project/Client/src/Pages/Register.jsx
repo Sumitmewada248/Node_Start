@@ -28,7 +28,7 @@ const Registration = () => {
 
  <h1 id="head">Customer Registration</h1>
 
- <div id ="login">
+ <div id ="regist">
 <form action="">
 
         Name:

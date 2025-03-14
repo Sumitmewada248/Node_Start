@@ -1,9 +1,12 @@
-
+import { useNavigate } from "react-router-dom"
 
 const Logout=()=>{
+   
+    const navigate=useNavigate()
+
     return(
         <>
-        <h1>Logout</h1>
+        <h1 onClick={navigate("/login")}>Logout</h1>
         </>
     )
 }

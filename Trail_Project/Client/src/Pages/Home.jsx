@@ -15,6 +15,7 @@ const Home=()=>{
       console.log(response.data);
       localStorage.setItem("username", response.data.name);
       localStorage.setItem("useremail", response.data.email);
+      localStorage.setItem("userid", response.data.id);
        navigate("/dashboard");       
     }
   }
