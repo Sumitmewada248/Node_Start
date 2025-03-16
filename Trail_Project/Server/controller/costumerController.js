@@ -6,12 +6,12 @@ const nodemailer = require("nodemailer");
 
 require("dotenv").config();
 const Registeration = async (req, res) => {
-    console.log(req.body);
+
     const { name, email, address, city, mobile, pincode } = req.body;
     try {
         const salt = await bcrypt.genSalt(10);
         var password = passwordCreator.generatePassword();
-        console.log(password)
+     
         const hashPassword = await bcrypt.hash(password, salt);
         const User = await costumerModel.create({
             name: name,
@@ -54,17 +54,13 @@ const Registeration = async (req, res) => {
         console.log('Email sent:', info.response);
     });
 };
-
-
 const Login = async (req, res) => {
-    const { email, password } = req.body;
-    console.log(email,password);
-
     try {
-        const User = await costumerModel.findOne({email:email});
-        console.log(User);
+        const { email, password } = req.body;
+        const User = await costumerModel.findOne({ email });
+
         if (!User) {
-            return res.status(401).send("Invalid Email!!!");
+            return res.status(401).send("Invalid Email!");
         }
 
         const passwordMatch = await bcrypt.compare(password, User.password);
@@ -72,33 +68,47 @@ const Login = async (req, res) => {
             return res.status(401).send("Invalid Password!");
         }
 
-        const token = await jwt.sign({ id: User._id }, process.env.SECRETE_KEY);
-        console.log(token);
-        res.send({ token:token });
-        res.send("jj")
+        const token = jwt.sign({ id: User._id }, process.env.SECRETE_KEY, { expiresIn: "1h" });
+        console.log("hdvndk",token);
+        return res.json({ token });
+        
     } catch (error) {
-        console.log(error);
-        res.status(500).send("Server Error");
+        console.error(error);
+        return res.status(500).send("Server Error");
     }
 };
 
-   const userAuthenticate = async (req, res) => {
+const userAuthenticate = async (req, res) => {
+    try {
+        const token = req.header("x-auth-token");
+        if (!token) {
+            return res.status(401).send("No token, authorization denied");
+        }
 
-    const token = req.header("x-auth-token");
-    console.log(token);
+        const verified = jwt.verify(token, process.env.SECRETE_KEY);
+        const User = await costumerModel.findById(verified.id).select("-password");
+
+        if (!User) {
+            return res.status(404).send("User not found");
+        }
+
+        return res.json(User);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Server Error");
+    }
+};
+
+const Deposite=async(req,res)=>{
+    
     
 
-    const verify= await jwt.verify(token, process.env.SECRETE_KEY);
-    console.log(verify);
-    const User= await costumerModel.findById(verify.id).select("-password");
-    
-    res.send(User);
-  }
-
-
+   
+}
 module.exports = { Login,
     Registeration,
-    userAuthenticate
+    userAuthenticate,
+    Deposite
 
  };
 

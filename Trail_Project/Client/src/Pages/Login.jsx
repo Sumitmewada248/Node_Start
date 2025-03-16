@@ -1,58 +1,68 @@
-import { useState,useEffect } from "react"
-import axios from "axios"
-import BASE_URL from "../config"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react";
+import BASE_URL from "../config";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/Dashboard/profile");
+    }
+  }, []);
 
-const Login=()=>{
-const[input,setInput]=useState("")
-const navigate=useNavigate()
-
-const handleInput=(e)=>{
-    const name=e.target.name;
-     const value= e.target.value 
-
-     setInput({...input,[name]:value})
-
-}
-
-const handleSubmit=async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let api=`${BASE_URL}/bank/login`
-     try {
-        const response=await axios.post(api,input)
-        console.log(response.data)
-
-        localStorage.setItem("token",response.data.token)
-        localStorage.setItem("name",response.data.name)
-     } catch (error) {
-        console.log(error)
-     }
-
-navigate("/Dashboard/dashome")
-}
-
-    return(
- <>
- 
-
- <h1 id="head">Customer Login</h1>
-
- <div id="login">
-
- Enter Email Id:<input type="text" name="email" onChange={handleInput}/><br/>
- Enter Password:<input type="password" name="password" onChange={handleInput}/><br/>
- <button onClick={handleSubmit} >Submit</button><br />
-
-
- If You Don't Have account <Link to="/register">Click Here!</Link>
- </div>
-
+    try {
+      const response = await axios.post(`${BASE_URL}/bank/login`, {
+        email,
+        password,
+      });
+      toast.success("Login Successfully");
+      localStorage.setItem("token", response.data.token);
+      console.log(response.data.token);
+      setTimeout(() => {
+        navigate("/Dashboard/profile");
+      }, 1000);
+    } catch (error) {
+      toast.error(error.response.data);
+    }
+  };
+  return (
+    <>
+      <h1 id="head">Customer Login</h1>
+      <div id="login">
+        Enter Email Id:
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        Enter Password:
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <button onClick={handleSubmit}>Submit</button>
+        If You Don't Have account <Link to="/register">Click Here!</Link>
+        <br />
+        <p>
+          Forgot Password <Link to="/forgot">Click Here!</Link>
+        </p>
+      </div>
+      <ToastContainer />
     </>
+  );
+};
 
-    )
-}
+export default Login;
 
-export default Login
