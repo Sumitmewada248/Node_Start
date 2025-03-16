@@ -24,8 +24,17 @@ const DasLayout = () => {
         
         <div id="side">
         <navbar id="sidebar">
-           <Link to="dashome">Home</Link>
-           <Link to="customer">Customer</Link>
+           
+         
+           <Link to="profile"> <h5>Profile</h5></Link>
+        
+           <Link to="deposite "><h5>Deposite</h5></Link>
+           <Link to="withdraw"><h5>Withdraw</h5></Link>
+         
+           <Link to="transaction"><h5>Transaction</h5></Link>
+           <Link to="balance"> <h5>Balance Inquiry</h5></Link>
+           <Link to="statement"><h5>Account Statement</h5></Link>
+           <Link to="resetpass"><h5>Reset Password</h5></Link>
         
 
            </navbar>

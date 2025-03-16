@@ -6,7 +6,11 @@ const Logout=()=>{
 
     return(
         <>
+        
         <h1 onClick={navigate("/login")}>Logout</h1>
+
+
+
         </>
     )
 }

@@ -5,9 +5,15 @@ import Registration from "./Pages/Register"
 import Login from "./Pages/Login"
 import Home from "./Pages/Home"
 import DasLayout from "./Pages/Dashboard/DasLayout"
-import DasHome from "./Pages/Dashboard/DasHome"
-import Customer from "./Pages/Dashboard/Costumer"
-import Logout from "./Pages/Dashboard/Logout"
+import DasHome from "./Pages/Dashboard/Transaction"
+import Profile from "./Pages/Dashboard/Profile"
+import Deposite from "./Pages/Dashboard/Deposite"
+import Withdraw from "./Pages/Dashboard/Withdraw"
+import Statement from "./Pages/Dashboard/Statement"
+import Reset from "./Pages/Dashboard/Reset Password"
+import Transaction from "./Pages/Dashboard/Transaction"
+import Balance from "./Pages/Dashboard/Balance"
+
 
 
 const App=()=>{
@@ -29,10 +35,21 @@ const App=()=>{
 
     <Routes>
       <Route path="/Dashboard" element={<DasLayout/>}>
-      <Route index element={<DasHome/>}/>
-       <Route path="dashome" element={<DasHome/>}/>
-       <Route path="customer" element={<Customer/>}/>
-       <Route path="logout" element={<Logout/>}/>
+      <Route index element={<Profile/>}/>
+   
+      <Route path="profile" element={<Profile/>}/>
+      <Route path="balance" element={<Balance/>}/>
+
+      <Route path="deposite" element={<Deposite/>}/>
+      <Route path="withdraw" element={<Withdraw/>}/>
+      <Route path="statement" element={<Statement/>}/>
+      <Route path="resetpass" element={<Reset/>}/>
+      <Route path="transaction" element={<Transaction/>}/>
+
+      
+
+
+     
        </Route>
     </Routes>
     </BrowserRouter>
