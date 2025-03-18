@@ -9,6 +9,26 @@ const Statement = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        if (startDate && endDate) {
+          const response = await axios.post(`${BASE_URL}/bank/Statement`, {
+            id: localStorage.getItem("id"),
+            start: startDate,
+            end: endDate,
+          });
+          setBalance(response.data.balance);
+          setTransactions(response.data.transactionID);
+          console.log(response.data.transactionID);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchTransactions();
+  }, [startDate, endDate]);
+
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
   };
@@ -16,26 +36,6 @@ const Statement = () => {
   const handleEndDateChange = (e) => {
     setEndDate(e.target.value);
   };
-
-  useEffect(() => {
-    const fetchTransactions = async () => {
-      try {
-        const response = await axios.post(`${BASE_URL}/bank/Statement`, {
-          id: localStorage.getItem("id"),
-          start: startDate,
-          end: endDate,
-        });
-        setBalance(response.data.balance);
-        setTransactions(response.data.transactionID);
-        console.log(response.data.transactionID);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (startDate && endDate) {
-      fetchTransactions();
-    }
-  }, [startDate, endDate]);
 
   return (
     <>

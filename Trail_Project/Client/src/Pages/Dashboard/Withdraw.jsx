@@ -30,11 +30,11 @@ const Withdraw=()=>{
         <div id="Withdraw">
         <h1>Withdraw</h1>
 
-        <form >
+        <form onSubmit={handleSubmit}>
             <label>Amount:</label>
             <input type="number" value={amount} onChange={(e)=>setAmount(e.target.value)} required/>
             <br/>
-            <button onClick={handleSubmit} >Withdraw</button>
+            <button type="submit">Withdraw</button>
         </form>
 
 

@@ -17,7 +17,7 @@ const Deposite=()=>{
             toast.success(response.data);
             setTimeout(() => {
                 navigate("/Dashboard/balance")
-            },2000);
+            },1000);
         }
         catch (error) {
             toast.error(error.response.data);
@@ -30,11 +30,11 @@ const Deposite=()=>{
         <div id="deposite">
         <h1>Deposite</h1>
 
-        <form >
+        <form onSubmit={handleSubmit}>
             <label>Amount:</label>
             <input type="number" value={amount} onChange={(e)=>setAmount(e.target.value)} required/>
             <br/>
-            <button onClick={handleSubmit} >Deposite</button>
+            <button type="submit">Deposite</button>
         </form>
 
 

@@ -5,13 +5,7 @@ import BASE_URL from "../config";
 
 const Registration = () => {
   const [input, setInput] = useState({
-    name: "",
-    address: "",
-    email: "",
-    city: "",
-    mobile: "",
-    pincode: "",
-    account: "",
+
   });
   const navigate = useNavigate();
 
@@ -69,14 +63,11 @@ const Registration = () => {
           <label>
             Account Type:
             <select
-              name="account"
+              name="accountType"
               required
               className="form-select"
               onChange={handleInput}
             >
-              <option value="" disabled>
-                Select Account Type
-              </option>
               <option value="savings">Savings</option>
               <option value="current">Current</option>
             </select>
