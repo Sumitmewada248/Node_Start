@@ -18,7 +18,9 @@ const SubCategory = () => {
                 console.error("Error fetching categories:", error);
             }
         };
+
         fetchCategories();
+
     }, []);
 
     const handleSubmit = (e) => {
@@ -32,6 +34,7 @@ const SubCategory = () => {
     };
 
     return (
+
         <>
             <h1>SubCategory</h1>
             <select name="category" value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -40,6 +43,7 @@ const SubCategory = () => {
                     <option key={category._id} value={category._id}>{category.category}</option>
                 ))}
             </select> <br />
+            
             
             <br />
 
