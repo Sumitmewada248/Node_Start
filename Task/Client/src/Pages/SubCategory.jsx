@@ -33,6 +33,7 @@ const SubCategory = () => {
         setSubcategory("");
     };
 
+
     return (
 
         <>
@@ -43,7 +44,7 @@ const SubCategory = () => {
                     <option key={category._id} value={category._id}>{category.category}</option>
                 ))}
             </select> <br />
-            
+
             
             <br />
 
@@ -54,6 +55,7 @@ const SubCategory = () => {
                 value={subcategory}
                 onChange={(e) => setSubcategory(e.target.value)}
             />
+            
             <br />
 
             <button onClick={handleSubmit}>submit</button>
